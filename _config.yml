@@ -1,10 +1,7 @@
 # My Configuration #
 
-name: TTI e-portfolio ss2017
-description: My (Matthias) e-portfolio for TTI Haw Hamburg
+name: E-Portfolio TTI
+description: Matthias Nitsche TTI E-Portfolio Haw Hamburg
 
 gems:
   - jekyll-sitemap
-
-slim:
-  pretty: true
