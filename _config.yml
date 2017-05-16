@@ -2,6 +2,3 @@
 
 name: E-Portfolio TTI
 description: Matthias Nitsche TTI E-Portfolio Haw Hamburg
-
-gems:
-  - jekyll-sitemap

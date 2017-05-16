@@ -294,7 +294,20 @@ footer {
   text-align: center;
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+.search-left {
+  float: left;
+  width: 20%;
+  padding: 150px 0px 0px 50px;
+}
+
+.content-right {
+  float: left;
+  width: 80%;
+}
+
+#search-input {
+  height:30px;
+  font-size:12pt;
+}
+
 @import "highlights";
-@import "svg-icons";
