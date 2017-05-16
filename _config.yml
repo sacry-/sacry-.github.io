@@ -1,2 +1,10 @@
-title: TTI e-portfolio ss2017
+# My Configuration #
+
+name: TTI e-portfolio ss2017
 description: My (Matthias) e-portfolio for TTI Haw Hamburg
+
+gems:
+  - jekyll-sitemap
+
+slim:
+  pretty: true
