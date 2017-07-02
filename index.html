@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="row pack">
+    {% assign sorted = (site.posts | sort: 'index') %}
+    {% for post in sorted %}
+      <div class="col-md-4 card">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class="panel-title pull-left"><b>{{ post.title | truncate: 25 }}</b></h3>
+            <br>
+            <span class="post-meta pull-left"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
+          </div>
+          <a href="{{ post.url | prepend: site.baseurl }}">
+            {% if post.img %}
+              <img width="100%" height="150px" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
+            {% else %}
+              <img width="100%" height="150px" src="{{site.baseurl}}/images/tf.jpg" alt="{{site.title}}">
+            {% endif %}
+          </a>
+          <div class="panel-body"><small>
+            {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</small>
+            <a href="{{ post.url | prepend: site.baseurl }}" class="pull-right mt10">Read</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

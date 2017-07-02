@@ -1,0 +1,33 @@
+<div class="row">
+  <ul class="pager">
+    {% if page.collection %}
+      {% assign collection = site[page.collection] | sort: 'index' %}
+      {% assign prev = collection | last %}
+      {% assign next = collection | first %}
+
+      {% for item in collection %}
+        {% if item.title == page.title %}
+          {% unless forloop.first %}
+            {% assign prev = iterator %}
+          {% endunless %}
+
+          {% unless forloop.last %}
+            {% assign next = collection[forloop.index] %}
+          {% endunless %}
+        {% endif %}
+
+        {% assign iterator = item %}
+      {% endfor %}
+    {% endif %}
+
+    {% if prev and page.index > 1 %}
+      <li><a href="{{ prev.url }}">{{ prev.title }}</a></li>
+    {% endif %}
+
+    {% if page.index == 9 %}
+      <li><a href="{{ next.url }}">Back to the start</a></li>
+    {% elsif next %}
+      <li><a href="{{ next.url }}">{{ next.title }}</a></li>
+    {% endif %}
+  </ul>
+</div>
