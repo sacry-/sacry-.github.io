@@ -3,8 +3,8 @@ layout: post
 author: Matthias Nitsche
 title: Machine Learning in the Cloud
 keywords: [tti]
-tags: tti
 index: 5
+img: 404.jpg
 ---
 
 This is the first paragraph. It should give a small introduction to the topic. The reader should want to read on after this. Be precise/provoking and direct.

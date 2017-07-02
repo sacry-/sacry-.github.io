@@ -3,8 +3,8 @@ layout: post
 author: Matthias Nitsche
 title: Training models on GPU clusters
 keywords: [tti]
-tags: tti
 index: 7
+img: 404.jpg
 ---
 
 This is the first paragraph. It should give a small introduction to the topic. The reader should want to read on after this. Be precise/provoking and direct.
