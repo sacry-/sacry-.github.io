@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Matthias Nitsche
-title: Continuous Deployment of Tensorflow models
+title: Continuous Deployment of machine learning models
 keywords: [tti]
 index: 9
 img: 404.jpg
