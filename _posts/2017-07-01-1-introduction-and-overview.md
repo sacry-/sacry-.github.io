@@ -11,44 +11,44 @@ The need for scalable services and rapid development cycles calls for new ways o
 
 {% include image.html url="/images/wordcloud-6.jpg" description="source: https://www.jasondavies.com/wordcloud/" %}
 
-In the following I will lay out basic terminology as well as a "table of content" for the upcoming posts. This blog is the final assigment of the lecture "Technik und Technologie verteilter Informationssysteme" ("Methods and technology of distributed information systems") in short "TTI" which is part of the M.Sc. Informatics curriculum of the university of applied sciences Hamburg held by professor Steffens.
+In the following I will lay out basic terminology as well as a "table of content" for the upcoming posts. This blog is the final assigment of the lecture "Technik und Technologie verteilter Informationssysteme" ("Methods and technology of distributed information systems") in short "TTI" which is part of the M.Sc. Informatics curriculum of the university of applied sciences Hamburg held by [Prof. Steffens](http://users.informatik.haw-hamburg.de/~steffens/){:target="_blank"}.
 
 ### Table of content
 
 1. <b>About the lecture and BPaaS project</b>
 
-    Some general thoughts and summaries on the TTI lecture and Business-process-as-a-service project.
+    Some general thoughts and summaries on the TTI lecture and Business-process-as-a-service project. Successes, failures and what I have learned during the lecture.
 
 2. <b>Containers, Docker and data science</b>
 
-    Containers are immutable objects that directly interact with the OS Host system. They are used to standardize and encapsulate the dependencies used for most applications. One of the most used container engine providers is Docker with the Dockerfile format. In this post I will elaborate the mechanisms of containers and how they can be used in data science applications.
+    Containers are immutable objects that directly interact with the OS Host system. They are used to standardize and encapsulate the dependencies used for most applications. One of the most used container engine providers is [Docker](https://www.docker.com/){:target="_blank"} with the Dockerfile format. In this post I will elaborate the mechanisms of containers and how they can be used in data science applications.
 
 3. <b>Kubernetes and Google Cloud Engine</b>
 
-    Kubernetes can scale roughly anything as long as it is run in containers. Googles open source platform written in Go is one of the most used frameworks to deploy services on 3rd party cloud providers such as AWS or GCE. Google Cloud Engine on the other hand comes with its own hardware, container registry and build in resources for managing Kubernetes clusters.
+    [Kubernetes](https://kubernetes.io/){:target="_blank"} can scale roughly anything as long as it is run in containers. Googles open source platform written in Go is one of the most used frameworks to deploy services on 3rd party cloud providers such as AWS or GCE. [Google Cloud Engine](https://cloud.google.com/compute/){:target="_blank"} on the other hand comes with its own hardware, container registry and build in resources for managing Kubernetes clusters.
 
 4. <b>Machine learning in the cloud</b>
 
-    Machine learning and especially deep learning is incredbly hard. Doing it right and correct on large scale datasets that can surpass the 10 billion mark is prone to a lot of trial and error. Automated machine learning services provided by Google or Microsoft become a viable alternative. What do you need to look out for and how to costumize when everything is a black box? What are the legal culprits?
+    Machine learning and especially deep learning is incredbly hard. Doing it right and correct on large scale datasets that can surpass the 10 billion mark is prone to a lot of trial and error. Automated machine learning services provided by [Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning/){:target="_blank"} or [Microsoft Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/){:target="_blank"} become viable alternatives. What do you need to look out for and how to costumize when everything is a black box? What are the legal culprits?
 
 5. <b>Training a neural network with Spark and Tensorflow</b>
 
-    Spark is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. Tensorflow on the other hand is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. As Tensorflow needs a lot of computational power and Spark stores and accesses huge datasets efficiently how can we leverage both technologies to build a reasonable pipeline?
+    [Apache Spark](https://spark.apache.org/){:target="_blank"} is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. [Tensorflow](https://www.tensorflow.org/){:target="_blank"} on the other hand is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. As Tensorflow needs a lot of computational power and Spark stores and accesses huge datasets efficiently how can we leverage both technologies to build a reasonable pipeline?
 
 6. <b>Training models on GPU clusters</b>
 
-    Deep learning models are all about the depth and width. More deeper layers and more hidden units per layer. The biggest models developed at Facebook or Google are as deep as 150 layers. Training such networks takes several weeks and an incredible amount of ressources. Most modern deep learning architectures leverage parallelization and lossy floating point arithmetic on GPU clusters. In this post I will explore what it takes to train on GPUs with Tensorflow.
+    Deep learning models are all about the depth and width. More deeper layers and more hidden units per layer. The biggest models developed at Facebook or Google are as deep as 150 layers. Training such networks takes several weeks and an incredible amount of ressources. Most modern deep learning architectures leverage parallelization and lossy floating point arithmetic on GPU clusters. In this post I will explore what it takes to train on GPUs with [Tensorflow](https://www.tensorflow.org/){:target="_blank"}.
 
 7. <b>Deploying Tensorflow models</b>
 
-    A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this GRPC - a high-performance, open-source RPC framework from Google and Protobuf - Googles fast data interchange format - will be used.
+    A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this [gRPC](http://www.grpc.io/){:target="_blank"} - a high-performance, open-source RPC framework - and [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"} - a fast data interchange format - will be used.
 
 8. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
 
-    After explaining all the principle ideas we still have to plug them together. Kubernetes, Docker and Tensorflow should be deployed with a simple use case to see how they interact in an environment. 
+    After explaining all the principle ideas we still have to plug them together. [Kubernetes](https://kubernetes.io/){:target="_blank"}, [Docker](https://www.docker.com/){:target="_blank"} and [Tensorflow](https://www.tensorflow.org/){:target="_blank"} should be deployed with a simple use case to see how they interact in an environment. 
 
 
-The table is long and there is much todo. Enjoy the blog if you can!
+The table is long and there is much todo. This basic introduction should have made you familiar with the concepts I would like to cover. Every article will have a longer sources section, possibly papers as well. Have a look for further instructions.
 
 ### Sources
 
