@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Matthias Nitsche
-title: Continuous Deployment of machine learning models
+title: Kubernetes, Docker and Tensorflow in a micro service architecture
 keywords: [tti]
 index: 9
 img: 404.jpg
