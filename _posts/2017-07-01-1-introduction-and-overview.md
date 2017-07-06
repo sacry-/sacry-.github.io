@@ -4,12 +4,12 @@ author: Matthias Nitsche
 title: Introduction and Overview
 keywords: [tti, introduction, overview]
 index: 1
-img: wordcloud-6.jpg
+img: wordcloud-cloud.png
 ---
 
 The need for scalable services and rapid development cycles calls for new ways of thinking about infrastructure, platforms and services. Cloud computing aims exactly at this and enables users to conveniently scale and publish their ideas into the world wide web. This blog aims to provide insights into deep learning providing instructions and presenting ideas on how to train, deploy and provision such models.
 
-{% include image.html url="/images/wordcloud-6.jpg" description="source: https://www.jasondavies.com/wordcloud/" %}
+{% include image.html url="/images/wordcloud-cloud.png" description="source: http://www.wordclouds.com/" %}
 
 In the following I will lay out basic terminology as well as a "table of content" for the upcoming posts. This blog is the final assigment of the lecture "Technik und Technologie verteilter Informationssysteme" ("Methods and technology of distributed information systems") in short "TTI" which is part of the M.Sc. Informatics curriculum of the university of applied sciences Hamburg held by [Prof. Steffens](http://users.informatik.haw-hamburg.de/~steffens/){:target="_blank"}.
 

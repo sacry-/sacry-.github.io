@@ -21,7 +21,7 @@ This is the first paragraph. It should give a small introduction to the topic. T
 
 <b>Here comes</b> the introduction..
 
-{% include image.html url="/images/generic-cat.jpg" description="source: http://quotesnhumor.com/top-30-funny-cat-memes/" %}
+{% include image.html url="/images/wordcloud-cloud.png" description="source: http://quotesnhumor.com/top-30-funny-cat-memes/" %}
 
 ### Interesting Aspect
 
