@@ -35,15 +35,11 @@ In the following I will lay out basic terminology as well as a "table of content
 
     [Apache Spark](https://spark.apache.org/){:target="_blank"} is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. [Tensorflow](https://www.tensorflow.org/){:target="_blank"} on the other hand is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. As Tensorflow needs a lot of computational power and Spark stores and accesses huge datasets efficiently how can we leverage both technologies to build a reasonable pipeline?
 
-6. <b>Training models on GPU clusters</b>
-
-    Deep learning models are all about the depth and width. More deeper layers and more hidden units per layer. The biggest models developed at Facebook or Google are as deep as 150 layers. Training such networks takes several weeks and an incredible amount of ressources. Most modern deep learning architectures leverage parallelization and lossy floating point arithmetic on GPU clusters. In this post I will explore what it takes to train on GPUs with [Tensorflow](https://www.tensorflow.org/){:target="_blank"}.
-
-7. <b>Deploying Tensorflow models</b>
+6. <b>Deploying Tensorflow models</b>
 
     A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this [gRPC](http://www.grpc.io/){:target="_blank"} - a high-performance, open-source RPC framework - and [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"} - a fast data interchange format - will be used.
 
-8. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
+7. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
 
     After explaining all the principle ideas we still have to plug them together. [Kubernetes](https://kubernetes.io/){:target="_blank"}, [Docker](https://www.docker.com/){:target="_blank"} and [Tensorflow](https://www.tensorflow.org/){:target="_blank"} should be deployed with a simple use case to see how they interact in an environment. 
 
