@@ -27,19 +27,15 @@ In the following I will lay out basic terminology as well as a "table of content
 
     [Kubernetes](https://kubernetes.io/){:target="_blank"} can scale roughly anything as long as it is run in containers. Googles open source platform written in Go is one of the most used frameworks to deploy services on 3rd party cloud providers such as AWS or GCE. [Google Cloud Engine](https://cloud.google.com/compute/){:target="_blank"} on the other hand comes with its own hardware, container registry and build in resources for managing Kubernetes clusters.
 
-4. <b>Machine learning in the cloud</b>
-
-    Machine learning and especially deep learning is incredbly hard. Doing it right and correct on large scale datasets that can surpass the 10 billion mark is prone to a lot of trial and error. Automated machine learning services provided by [Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning/){:target="_blank"} or [Microsoft Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/){:target="_blank"} become viable alternatives. What do you need to look out for and how to costumize when everything is a black box? What are the legal culprits?
-
-5. <b>Training a neural network with Spark and Tensorflow</b>
+4. <b>Training a neural network with Spark and Tensorflow</b>
 
     [Apache Spark](https://spark.apache.org/){:target="_blank"} is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. [Tensorflow](https://www.tensorflow.org/){:target="_blank"} on the other hand is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. As Tensorflow needs a lot of computational power and Spark stores and accesses huge datasets efficiently how can we leverage both technologies to build a reasonable pipeline?
 
-6. <b>Deploying Tensorflow models</b>
+5. <b>Deploying Tensorflow models</b>
 
     A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this [gRPC](http://www.grpc.io/){:target="_blank"} - a high-performance, open-source RPC framework - and [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"} - a fast data interchange format - will be used.
 
-7. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
+6. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
 
     After explaining all the principle ideas we still have to plug them together. [Kubernetes](https://kubernetes.io/){:target="_blank"}, [Docker](https://www.docker.com/){:target="_blank"} and [Tensorflow](https://www.tensorflow.org/){:target="_blank"} should be deployed with a simple use case to see how they interact in an environment. 
 

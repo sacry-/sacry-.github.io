@@ -3,7 +3,7 @@ layout: post
 author: Matthias Nitsche
 title: Training a Neural Network with Spark and Tensorflow
 keywords: [tti]
-index: 6
+index: 5
 img: 404.jpg
 ---
 
