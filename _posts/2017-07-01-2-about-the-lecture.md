@@ -4,7 +4,7 @@ author: Matthias Nitsche
 title: About the Lecture
 keywords: [tti, lecture summary, cloud computing]
 index: 2
-img: cloud-computing.png
+img: tti-main.png
 ---
 
 The overall topic in the TTI lecture can be summarized with the two words "cloud computing". Create distributed architectures, deploy and provision services horizontally and scale them as needed. In the following I will summarize the lecture and make remarks to the BPaaS project/assigment of the team I worked in. Note however I will skim through concepts that were more interesting to me than others. It is not a "full" summary.
