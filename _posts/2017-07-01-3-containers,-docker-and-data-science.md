@@ -369,7 +369,7 @@ def analyze(result_table):
 analyze(result_table)
 ```
 
-The wrong results are much more interesting than correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and 4 as `c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous.
+The wrong results are much more interesting than correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and `4 as c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous.
 
 ```python
 wrong:
