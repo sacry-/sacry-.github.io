@@ -4,21 +4,19 @@ author: Matthias Nitsche
 title: Containers, Docker and Data Science
 keywords: [containers, docker, data science, machine learning, data engineering]
 index: 3
-img: data-science-cover.png
+img: containerization.jpg
 ---
 
 Hardware virtualization and virtual machines were yesterday! Today is the age of containers. Just kidding, but containers are here to stay for a long time. 
 
-{% include image.html url="/images/data-science-cover.png" description="source: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Social_Network_Analysis_Visualization.png/1024px-Social_Network_Analysis_Visualization.png" %}
+{% include image.html url="/images/containerization.jpg" description="source: https://c1.staticflickr.com/4/3678/10921728045_4de014f856_b.jpg" %}
 
 <blockquote>A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings. 
 <cite>- https://www.docker.com/what-container</cite></blockquote>
 
-Docker is one of the many providers to offer support through various tools like the Docker cli and Dockerhub evolving around the Dockerfile, very similar to Makefiles in their own domain. 
-Container orchestration will not be part of this post. Kubernetes will be covered in later posts.
+Docker is one of the many providers to offer support for containers through various tools like the Docker cli, Dockerhub and the Dockerfile standard. The best thing about them is simple: If you need to install several libraries and software tools to support your own use case Docker helps in defining this platform in a simple Dockerfile format. From third party tools to runtime setups, operating systems and how the code is loaded most of the things you think of are possible. Containers also offer a standardized interface to the outside world meaning that IaaS or PaaS providers are capable of offering their services given your Dockerfile alone.
 
-Now what can we do with it? Maybe create a small runtime for a data science workflow relying on programming languages like R and Python, having heavy dependencies on a lot of numerical optimization and statistical libraries as well as many adapters for several databases. In total you need about everything that you can think of as a full stack developer. It is a pain to get your dependencies correct, setting it up to solely work on models and algorithms describing your domain.
-
+In this post I would like to create a small runtime for a data science / machine learning workflow. The hard thing about these workflows is that you need about everything. Programming environments, dozens of programming libraries, dozens of system libraries at best running on a linux, at worst with GPU accelerated and system specific support, visualization tools and access to a broad range of databases. This seems like a cool use case!
 
 ### Interesting Aspect
 

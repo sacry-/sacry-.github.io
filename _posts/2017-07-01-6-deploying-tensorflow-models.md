@@ -4,14 +4,14 @@ author: Matthias Nitsche
 title: Deploying Tensorflow models
 keywords: [tti]
 index: 8
-img: 404.jpg
+img: server-farm.jpg
 ---
 
 This is the first paragraph. It should give a small introduction to the topic. The reader should want to read on after this. Be precise/provoking and direct.
 
 <b>Here comes</b> the introduction..
 
-{% include image.html url="/images/wordcloud-cloud.png" description="source: http://quotesnhumor.com/top-30-funny-cat-memes/" %}
+{% include image.html url="/images/server-farm.jpg" description="source: https://c1.staticflickr.com/1/686/33371413545_360923fbd7_b.jpg" %}
 
 ### Interesting Aspect
 

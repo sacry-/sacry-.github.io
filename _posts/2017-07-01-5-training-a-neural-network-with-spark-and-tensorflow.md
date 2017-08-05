@@ -4,14 +4,14 @@ author: Matthias Nitsche
 title: Training a Neural Network with Spark and Tensorflow
 keywords: [tti]
 index: 5
-img: 404.jpg
+img: brain.jpg
 ---
 
 This is the first paragraph. It should give a small introduction to the topic. The reader should want to read on after this. Be precise/provoking and direct.
 
 <b>Here comes</b> the introduction..
 
-{% include image.html url="/images/wordcloud-cloud.png" description="source: http://quotesnhumor.com/top-30-funny-cat-memes/" %}
+{% include image.html url="/images/brain.jpg" description="source: http://quotesnhumor.com/top-30-funny-cat-memes/" %}
 
 ### Interesting Aspect
 

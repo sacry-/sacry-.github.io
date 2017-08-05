@@ -35,10 +35,6 @@ In the following I will lay out basic terminology as well as a "table of content
 
     A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this [gRPC](http://www.grpc.io/){:target="_blank"} - a high-performance, open-source RPC framework - and [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"} - a fast data interchange format - will be used.
 
-6. <b>Kubernetes, Docker and Tensorflow in a micro service architecture</b>
-
-    After explaining all the principle ideas we still have to plug them together. [Kubernetes](https://kubernetes.io/){:target="_blank"}, [Docker](https://www.docker.com/){:target="_blank"} and [Tensorflow](https://www.tensorflow.org/){:target="_blank"} should be deployed with a simple use case to see how they interact in an environment. 
-
 
 The table is long and there is much todo. This basic introduction should have made you familiar with the concepts I would like to cover. Every article will have a longer sources section, possibly papers as well. Have a look for further instructions.
 
