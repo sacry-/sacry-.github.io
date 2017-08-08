@@ -1,8 +1,8 @@
 ---
 layout: post
 author: Matthias Nitsche
-title: Containers, Docker and Data Science
-keywords: [containers, docker, data science, machine learning, data engineering]
+title: Containers, Docker and Machine Learning
+keywords: [containers, docker, machine learning, data engineering]
 index: 3
 img: containerization.jpg
 ---
@@ -16,11 +16,11 @@ Hardware virtualization and virtual machines were yesterday! Today is the age of
 
 Docker is one of the many providers to offer support for containers through various tools like the Docker cli, Dockerhub and the Dockerfile standard. The best thing about them is simple: If you need to install several libraries and software tools to support your own use case Docker helps in defining this platform in a simple Dockerfile format. From third party tools to runtime setups, operating systems and how the code is loaded most of the things you think of are possible. Containers also offer a standardized interface to the outside world meaning that IaaS or PaaS providers are capable of offering their services given your Dockerfile alone.
 
-In this post I would like to create a small runtime for a data science / machine learning workflow. The hard thing about these workflows is that you need about everything. Programming environments, dozens of programming libraries, dozens of system libraries at best running on a linux, at worst with GPU accelerated and system specific support, visualization tools and access to a broad range of databases. This seems like a cool use case!
+In this post I would like to create a small runtime for a machine learning workflow. The hard thing about these workflows is that you need about everything. Programming environments, dozens of programming libraries, dozens of system libraries at best running on a linux, at worst with GPU accelerated and system specific support, visualization tools and access to a broad range of databases. This seems like a cool use case!
 
 ### Docker
 
-For this post basic Docker knowledge is required as well as some familiarity with the eco system evolving around data science/machine learning applications. In your console you should be able to do
+For this post basic Docker knowledge is required as well as some familiarity with the eco system evolving around machine learning applications. In your console you should be able to do
 
 ```ruby
 $ docker ps
@@ -34,7 +34,7 @@ $ touch Dockerfile
 $ $EDITOR Dockerfile
 ```
 
-We will use a modified version of <a href="https://github.com/dataquestio/ds-containers" target="_blank">Dataquest.io</a> to setup our data-science environment.
+We will use a modified version of <a href="https://github.com/dataquestio/ds-containers" target="_blank">Dataquest.io</a> to setup our machine learning environment.
 
 ```ruby
 $ cat Dockerfile
@@ -49,7 +49,7 @@ ADD apt-packages.txt /tmp/apt-packages.txt
 RUN xargs -a /tmp/apt-packages.txt apt-get install -y --fix-missing
 ```
 
-We tell Docker that we would like to use a base image called `dataquestio/ubuntu-base` configured by a user of Dockerhub. This image is a good starting point, other data science images are much more involved and require a lot more time to fully understand. For machine learning you would need the CUDA versions for everything you do.
+We tell Docker that we would like to use a base image called `dataquestio/ubuntu-base` configured by a user of Dockerhub. This image is a good starting point, other machine learning images are much more involved and require a lot more time to fully understand. For machine learning you would need the CUDA versions for everything you do.
 Next we set some basic environments `ENV` and update the ubuntu version with system libraries of our needs. In the directory of your Dockerfile needs to be the <a href="https://github.com/dataquestio/ds-containers/blob/master/apt-packages.txt" target="_blank">apt-packages.txt</a> file.
 
 ```ruby
@@ -142,9 +142,9 @@ Now here is happening quite a bit more. We run a container naming it `data-explo
 
 {% include image.html url="/images/jupyter-browser.png" %}
 
-### Data Science
+### Machine Learning
 
-After setting everything up it is high time to create a small model doing anything really. In the following I will take in a list of documents with text describing positions and one of three true normalized positions "engineer, product, c-level".
+After setting everything up it is high time to create a small model. In the following I will take in a list of documents with text describing positions and one of three true normalized positions "engineer, product, c-level". We would like to predict from normalized text the true distribution of the data.
 
 <table class="table table-md table-striped table-bordered">
 <thead>
@@ -169,7 +169,7 @@ After setting everything up it is high time to create a small model doing anythi
 </tbody>
 </table>
 
-Each categorie has roughly 200 different examples with a text description and the true label. Lets setup the data as a `pandas` Dataframe and `drop` columns we do not care about.
+Each category has roughly 200 different examples with a text description and the true label. Lets setup the data as a `pandas` Dataframe and `drop` columns we do not care about.
 
 ```python
 import pandas as pd
@@ -198,7 +198,7 @@ def group_map(grouped, field):
 positions = group_map(grouped, "positions")
 ```
 
-Preprocess the data with English based tokenization, removing stopwords and stemming the words to only take the stem of a word into account. 
+Preprocess the data with English based tokenization, removing stopwords and stemming the words to only take the stem of a word into account. This reduces the vocabulary size and abstracts words to overlap with other categories, reducing the generalization error.
 
 ```python
 from nltk.corpus import stopwords
@@ -246,7 +246,7 @@ for label in labels:
       data[label].append(r)
 ```
 
-After preprocessing the data we map the natural language positions into the vector space with `Tf-Idf`. We need a train set for training the classifier and a test set for validating how well we did. `X` are always the datapoints described by their columns e.g. natural language positions and `Y` the golden standard of what the actual label is.
+After preprocessing the natural language positions are mapped into the vector space with <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf" target="_blank">term frequency-inverse document frequency</a> (short tf-idf). We need a train set for training the classifier and a test set for validating how well we did. `X` are the columns describing the true label e.g. natural language positions and `Y` the golden standard of what the actual label is.
 
 ```python
 from sklearn.cross_validation import train_test_split
@@ -281,7 +281,7 @@ X_test = vectorizer.transform(x_test)
 print(X_train.shape, X_test.shape, len(y_train), len(y_test))
 ```
 
-Next we need to take the mapped data and classify a classifier with the training set. We use the RandomForest classifier that builds up decision trees or weak learners sampled randomly optimizing a cost function at each tree node and merging the results of all weak learners to create a stronger classifier. We will do several runs with RandomForest and would like to have one that excels 80% on the v-measure scale.
+Next we need to take the mapped data and classify a classifier with the training set. We use the <a href="https://en.wikipedia.org/wiki/Random_forest" target="_blank">Random forest</a> classifier that builds up decision trees sampled randomly, optimizing a cost function at each tree node and merging the results of all trees  to create a stronger classifier. This is also called an ensemble classifier. We will do several runs with Random forest and would like to have one that excels 80% on the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html" target="_blank">v-measure scale</a>. The v-measure is a clustering score that calculates falsely assigned against rightly assigned labels and strongly penalizes spread of missclassification e.g. the more a label is falsely assigned to all other classes.
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -332,7 +332,7 @@ y_readable = [mapped_labels[val] for val in y_test]
 result_table = list(zip(x_test, pred_readable, y_readable))
 ```
 
-When everything is run (this might take a while), we can analyze our results and print out what values were misclassified and what their actual label was.
+When everything is run (this might take a while), we can analyze our results and print out what values were correctly classified and misclassified.
 
 ```python
 from collections import Counter
@@ -369,7 +369,7 @@ def analyze(result_table):
 analyze(result_table)
 ```
 
-The wrong results are much more interesting than correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and `4 as c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous.
+The wrong results are much more interesting than correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and `4 as c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous and widely spread.
 
 ```python
 wrong:
@@ -384,7 +384,7 @@ c-level (4)  ->  [('engineer', 1), ('product', 3)]
 ['vice presid technolog product strategi vp technolog strategi workday/investor advisor', 'research scientist consult climate/environment issu project coordin', 'project coordin project coordin deutscher wetterdienst', 'io dev team leader io dev team leader joytun']
 ```
 
-Some correct samples as well. Overall pretty good for the range of very unnormalized textual inputs.
+The correct samples intrinsically show that a lot of labels are accuretly assigned to their classes. Overall pretty good for the range of very unnormalized textual inputs. The classification results can only be as good as the labelling of the ground truth. Bad labels lead to a bad approximation of the true data distribution. Sort of the typical engineering mantra: "Garbage in, garbage out".
 
 ```python
 correct:
@@ -401,7 +401,7 @@ c-level (127)
 
 ### Wrap up
 
-In this post I have shown how to use basic Docker to setup a data-science/machine learning environment. We then applied the environment to run a very basic algorithm called RandomForest. We did not optimize anything and just randomly hoped to improve results. Todays state of the art models in classifying something like the positions Long short-term memory (LSTM) networks, convolutional neural networks (CNN) or attention based networks (Transformer), do amazingly great on the tasks. There is always room for improvement!
+In this post I have shown how to use basic Docker to setup a machine learning environment. We then applied the environment to run a very basic algorithm called RandomForest. We did not optimize anything and just randomly hoped to improve results. Todays state of the art models in classifying something like the positions Long short-term memory (LSTM) networks, convolutional neural networks (CNN) or attention based networks (Transformer), do amazingly great on the tasks. There is always room for improvement!
 
 ### Sources
 

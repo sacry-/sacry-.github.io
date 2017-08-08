@@ -19,13 +19,13 @@ In the following I will lay out basic terminology as well as a "table of content
 
     Some general thoughts and summaries on the TTI lecture and Business-process-as-a-service project. Successes, failures and what I have learned during the lecture.
 
-2. <b>Containers, Docker and data science</b>
+2. <b>Containers, Docker and Machine Learning</b>
 
-    Containers are immutable objects that directly interact with the OS Host system. They are used to standardize and encapsulate the dependencies used for most applications. One of the most used container engine providers is [Docker](https://www.docker.com/){:target="_blank"} with the Dockerfile format. In this post I will elaborate the mechanisms of containers and how they can be used in data science applications.
+    Containers are immutable objects that directly interact with the OS Host system. They are used to standardize and encapsulate the dependencies used for most applications. One of the most used container engine providers is [Docker](https://www.docker.com/){:target="_blank"} with the Dockerfile format. In this post I will elaborate the mechanisms of containers and how they can be used in machine learning applications.
 
-3. <b>Kubernetes and Google Cloud Engine</b>
+3. <b>Machine Learning in the Cloud</b>
 
-    [Kubernetes](https://kubernetes.io/){:target="_blank"} can scale roughly anything as long as it is run in containers. Googles open source platform written in Go is one of the most used frameworks to deploy services on 3rd party cloud providers such as AWS or GCE. [Google Cloud Engine](https://cloud.google.com/compute/){:target="_blank"} on the other hand comes with its own hardware, container registry and build in resources for managing Kubernetes clusters.
+    All the global players jumped on the AI train. Whether it is [Google](https://cloud.google.com/products/machine-learning/), [Microsoft](https://azure.microsoft.com/en-us/services/machine-learning/), [Facebook](https://research.fb.com/category/facebook-ai-research-fair/) with NVIDIA as their computational backend for high end GPU clusters. They set up research labs with the brightest people the field has to offer. Only big players can afford to run the algorithms with state of the art results and more importantly to ship products and applications to the market that scale to the billions of people interested. Here we will explore whats on the market and what developers of today can do with it. 
 
 4. <b>Training a neural network with Spark and Tensorflow</b>
 
@@ -41,7 +41,6 @@ The table is long and there is much todo. This basic introduction should have ma
 ### Sources
 
 - [Docker](https://www.docker.com/){:target="_blank"}
-- [Kubernetes](https://kubernetes.io/){:target="_blank"}
 - [Google Cloud Engine](https://cloud.google.com/compute/){:target="_blank"}
 - [Apache Spark](https://spark.apache.org/){:target="_blank"}
 - [Tensorflow](https://www.tensorflow.org/){:target="_blank"}
@@ -49,5 +48,6 @@ The table is long and there is much todo. This basic introduction should have ma
 - [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"}
 - [Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning/){:target="_blank"}
 - [Microsoft Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/){:target="_blank"}
+- [Facebook FAIR](https://research.fb.com/category/facebook-ai-research-fair/)
 - [Prof. Steffens](http://users.informatik.haw-hamburg.de/~steffens/){:target="_blank"}
 
