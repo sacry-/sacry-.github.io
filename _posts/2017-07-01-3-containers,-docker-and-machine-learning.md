@@ -405,11 +405,11 @@ In this post I have shown how to use basic Docker to setup a machine learning en
 
 ### Sources
 
-- [Docker](https://www.docker.com/)
-- [Python Numpy](http://www.numpy.org/)
-- [Python Scipy](https://www.scipy.org/)
-- [Python Pandas](http://pandas.pydata.org/)
-- [Python Sklearn](http://scikit-learn.org/)
-- [Python Jupyter](http://jupyter.org/)
-- [Dataquest on Github](https://github.com/dataquestio/ds-containers)
+- [Docker](https://www.docker.com/){:target="_blank"}
+- [Python Numpy](http://www.numpy.org/){:target="_blank"}
+- [Python Scipy](https://www.scipy.org/){:target="_blank"}
+- [Python Pandas](http://pandas.pydata.org/){:target="_blank"}
+- [Python Sklearn](http://scikit-learn.org/){:target="_blank"}
+- [Python Jupyter](http://jupyter.org/){:target="_blank"}
+- [Dataquest on Github](https://github.com/dataquestio/ds-containers){:target="_blank"}
 

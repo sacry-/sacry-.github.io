@@ -270,10 +270,10 @@ While algorithms provide a way to rank the content for the user, behind the scen
 
 ### Sources
 
-- [Heroku Setup](https://devcenter.heroku.com/articles/git)
-- [Redis](https://redis.io/)
-- [Activiti](https://www.activiti.org/)
-- [Haskell](https://wiki.haskell.org/Learn_Haskell_in_10_minutes)
+- [Heroku Setup](https://devcenter.heroku.com/articles/git){:target="_blank"}
+- [Redis](https://redis.io/){:target="_blank"}
+- [Activiti](https://www.activiti.org/){:target="_blank"}
+- [Haskell](https://wiki.haskell.org/Learn_Haskell_in_10_minutes){:target="_blank"}
 
 ### Papers
 
