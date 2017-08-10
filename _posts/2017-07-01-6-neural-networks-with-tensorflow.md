@@ -227,6 +227,10 @@ with sess.as_default():
 
 It is easy to see that working with keras can be much easier when quickly evaluating models. The abstraction is more suitable to think about design than about code. Tesnorflow models can get to 2-3k lines of code quickly.
 
+### Wrap up
+
+In this post we have seen how to use Tensorflow as a neural network engine classifying the Iris data. It shows also what can be done with the data at our disposal. Big data questions arise more frequently due to companies saving more user data. However most companies do not leverage these kinds of data in other useful ways. Maybe there are a few classifiers in your application already, you just have not noticed! 
+
 ### Sources
 
 - [Tensorflow](https://www.tensorflow.org/){:target="_blank"}
