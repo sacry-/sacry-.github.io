@@ -72,6 +72,8 @@ chmod +x jupyspark.sh
 
 Now we are ready to do some actual coding and modelling.
 
+{% include image.html url="/images/spark-browser.png" description="Spark browser <code>http://localhost:4040</code>" %}
+
 ### Spark Machine Learning
 
 In order to train a machine learning algorithm with Python and Spark we need to do some proper imports. `pyspark` is the library we would like to import. The jupyter session started before makes it possible to call a `SparkContext` automatically aliased by `sc`.
@@ -177,6 +179,10 @@ print("Test set accuracy = " + str(evaluator.evaluate(predictionAndLabels)))
 {% endhighlight %}
 
 The accuracy is around 80%, the best accuracy that can be predicted without feeding in prior knowledge about the passengers is around 82%. We only used 3 of the 20 variables to predict it though. Seems reasonable.
+
+### Wrap up
+
+In this post we have seen how Spark can be leveraged to classify the survival data of the Titanic. While the algorithms are very solid and could be - in theory - executed completely in parallel, they are not state of the art. Connecting Spark with libraries like Tensorflow is a non trivial task that could cover several blog posts alone. In context of large data collections Spark is a good option as long as the computational servers have enough RAM.
 
 ### Sources
 

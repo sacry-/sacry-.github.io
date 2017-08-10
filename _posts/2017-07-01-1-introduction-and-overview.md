@@ -43,8 +43,6 @@ The table is long and there is much todo. This basic introduction should have ma
 - [Google Cloud Engine](https://cloud.google.com/compute/){:target="_blank"}
 - [Apache Spark](https://spark.apache.org/){:target="_blank"}
 - [Tensorflow](https://www.tensorflow.org/){:target="_blank"}
-- [gRPC](http://www.grpc.io/){:target="_blank"}
-- [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"}
 - [Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning/){:target="_blank"}
 - [Microsoft Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/){:target="_blank"}
 - [Facebook FAIR](https://research.fb.com/category/facebook-ai-research-fair/)

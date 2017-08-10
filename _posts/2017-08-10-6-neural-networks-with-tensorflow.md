@@ -186,7 +186,7 @@ with tf.Session().as_default() as sess:
       print("In Epoch {} Accuracy {:10.5f}".format(epoch + 1, accuracy_value))
 {% endhighlight %}
 
-This should yield between 96% and 98% accuracy. A few things to note: we applied dropout, which means that at random nodes in the network are removed to improve the generalization error. Instead of using a simple gradient descent we used the Adam optimizer, which leads in some cases improved results. In this particular example we could have got away with 1 hidden layer, for the fun of it we did 2.
+This should yield between 96% and 98% accuracy. A few things to note: we applied dropout, which means that at random nodes in the network are removed to improve the generalization error. Instead of using a simple gradient descent we used the Adam optimizer, which leads in some cases to improved results. In this particular example we could have got away with 1 hidden layer, for the fun of it we used 2.
 
 ### Keras
 
@@ -225,7 +225,7 @@ with sess.as_default():
   })
 {% endhighlight %}
 
-It is easy to see that working with keras can be much easier when quickly evaluating models. The abstraction is more suitable to think about design than about code. Tesnorflow models can get to 2-3k lines of code quickly.
+It is easy to see that working with keras can be much easier when quickly evaluating models. The abstraction is more suitable to think about design than about code. Tensorflow models can get to 2-3k lines of code quickly.
 
 ### Wrap up
 

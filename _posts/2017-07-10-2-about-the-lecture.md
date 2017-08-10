@@ -268,6 +268,10 @@ Some companies like Google or WolframAlpha are exceptionally good at interpretin
 
 While algorithms provide a way to rank the content for the user, behind the scences web search needs to be organized in large hierarchical trees due to the enourmous amount of existing websites and new ones. The process behind organizing this is commonly referred to as indexing. Words and sentences are therefore mapped into numerical domains that pertains the structure and is easier to use as filters when queries come in.
 
+### Wrap up
+
+The lecture covered a wide variety of topics from business architectures to NoSQL, from information retrieval to big data applications, from cloud solutions to cluster mangement software. Two of the biggest drivers in these realms are virtualization with improving abstractions for deploying and scaling software as well as storage solutions that can handle petabyte of data if configured and setup correctly. New software ideas grow quickly and IaaS, PaaS or SaaS solutions come up everyday now, in turn helping other ideas to come to fruit. With a little money on the side software deployment and continuous delivery solutions can be written in 50 lines of code and almost zero configuration while being much better than solutions 5-10 years ago.
+
 ### Sources
 
 - [Heroku Setup](https://devcenter.heroku.com/articles/git){:target="_blank"}
