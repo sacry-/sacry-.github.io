@@ -15,7 +15,7 @@ In this post I would like to explore the concepts of Tensorflow. As explained be
 
 ### Tensorflow Setup
 
-Working with Tensorflow in Python we need to setup some dependencies first. In a post before we used Docker to setup a machine learning environment. To actually leverage Docker based notebook session with Tensorflow we would need some computational servers to run our models on. GPU clusters are costly be it in my backyard or in the cloud. Thats why we need to prepare Tensorflow for a local session. The requirements for Python are
+Working with Tensorflow in Python we need to setup some dependencies first. In a post before we used Docker to setup a machine learning environment. To actually leverage a Docker based notebook session with Tensorflow we would need some computational servers to run our models on. GPU clusters are costly be it in my backyard or in the cloud. Thats why we need to prepare Tensorflow for a local session. The requirements for Python are
 
 {% highlight python %}
 $ cat requirements.txt

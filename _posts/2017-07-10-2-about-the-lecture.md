@@ -187,7 +187,7 @@ The following attributes often hold true for NoSQL databases
   - Distributed and horizontally scalable
   - No transactions (BASE instead of ACID)
 
-<a href="http://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf" target="_blank">Brewer</a> had some good ideas what a NoSQL system means and established the <b>BASE</b>:
+<a href="http://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf" target="_blank">Brewer</a> had some good ideas what a NoSQL system means and established the <b>BASE</b> principle:
 
   - Basic Availability
   - Soft-state
@@ -200,12 +200,16 @@ in contrast <b>ACID</b>:
   - Isolated: A transaction is indepedant of another.
   - Durable: Translationcts always happen if scheduled (also in case of server restarts etc.)
 
-It is easy to see that NoSQL without any transaction is in a stark contrast to a relational ACID model where everything is wrapped around transactions. In BASE systems we do not care for 100%, it is more convenient to be almost always available and having a state that is not fully consistent now maybe later e.g. it might happen that 2 users see 2 different truths at times (but that is permissible). We gain a lot of speed and conveniences with BASE, however the software that is in such an environment must handle the inconsistent states. 
+It is easy to see that NoSQL without any transaction is in a stark contrast to a relational ACID model where everything is wrapped around transactions. In BASE systems we do not care that everything is in sync 100% of the time. It is more convenient to be almost always available and having a state that is not fully consistent at the moment but maybe later e.g. it might happen that 2 users see 2 different truths at times. We gain a lot of speed and conveniences with BASE, however the software that is in such an environment must handle the inconsistent states. 
 
 <div class="panel panel-info">
   <div class="panel-heading"><b>Brewers CAP theorem</b></div>
   <div class="panel-body">
-  <b>Brewers CAP</b> theorem states that it is impossible for a NoSQL database to guarantee all of the following attributes at the same time: Consistency, Availability and Partition tolerance. This is explained by the fact that in distributed systems, network failures must be expected. As a result either availability or constistency will suffer.
+  <b>Brewers CAP</b> theorem states that it is impossible for a NoSQL database to guarantee all of the following attributes at the same time: Consistency, Availability and Partition tolerance. This is explained by the fact that in distributed systems, network failures must be expected.
+
+  {% include image.html url="/images/brewer-cap.png" class="small" %}
+
+  As a result either availability or constistency will suffer. This is also depicted in the above image. There are trade offs to the other either choosing <code>CP, AP or CA</code>.
   </div>
 </div>
 
@@ -266,7 +270,7 @@ Some companies like Google or WolframAlpha are exceptionally good at interpretin
   </div>
 </div>
 
-While algorithms provide a way to rank the content for the user, behind the scences web search needs to be organized in large hierarchical trees due to the enourmous amount of existing websites and new ones. The process behind organizing this is commonly referred to as indexing. Words and sentences are therefore mapped into numerical domains that pertains the structure and is easier to use as filters when queries come in.
+While algorithms provide a way to rank the content for the user, behind the scences web search needs to be organized in large hierarchical trees due to the enourmous amount of existing websites and new ones. The process behind organizing this is commonly referred to as indexing. Words and sentences are therefore mapped into numerical domains that pertains the structure. It therefore becomes much faster to resolve incoming queries to a subset of the results. On these results high quality algorithms can be run that would take too much time when applied to the whole dataset.
 
 ### Wrap up
 

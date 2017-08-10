@@ -14,29 +14,29 @@ Hardware virtualization and virtual machines were yesterday! Today is the age of
 <blockquote>A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings. 
 <cite>- https://www.docker.com/what-container</cite></blockquote>
 
-Docker is one of the many providers to offer support for containers through various tools like the Docker cli, Dockerhub and the Dockerfile standard. The best thing about them is simple: If you need to install several libraries and software tools to support your own use case Docker helps in defining this platform in a simple Dockerfile format. From third party tools to runtime setups, operating systems and how the code is loaded most of the things you think of are possible. Containers also offer a standardized interface to the outside world meaning that IaaS or PaaS providers are capable of offering their services given your Dockerfile alone.
+Docker is one of the many providers to offer support for containers through various tools like the Docker cli, Dockerhub and the Dockerfile standard. The best thing about them is simple: If you need to install several libraries and software tools to support your own use case Docker helps you in defining your setup with the Dockerfile format. From third party tools to runtime setups, operating systems and how the code is executed. Almost everything a modern day provisioning workflow needs is possible. Containers also offer a standardized interface to the outside world meaning that IaaS or PaaS providers are capable of offering their services given your Dockerfile alone.
 
-In this post I would like to create a small runtime for a machine learning workflow. The hard thing about these workflows is that you need about everything. Programming environments, dozens of programming libraries, dozens of system libraries at best running on a linux, at worst with GPU accelerated and system specific support, visualization tools and access to a broad range of databases. This seems like a cool use case!
+In this post I would like to create a small runtime for a machine learning workflow. The hard thing about machine learning workflows is that you need everything. Programming environments, dozens of programming libraries, dozens of system libraries at best running on a linux, at worst with GPU accelerated and system specific support, visualization tools and access to a broad range of databases. This seems like a cool use case!
 
 ### Docker
 
 For this post basic Docker knowledge is required as well as some familiarity with the eco system evolving around machine learning applications. In your console you should be able to do
 
-```ruby
+```python
 $ docker ps
 CONTAINER ID  IMAGE  COMMAND  CREATED  STATUS  PORTS  NAMES
 ```
 
 Currently there is nothing to see here, but if you had any containers running they would show up here. Let us create a `Dockerfile`
 
-```ruby
+```python
 $ touch Dockerfile
 $ $EDITOR Dockerfile
 ```
 
 We will use a modified version of <a href="https://github.com/dataquestio/ds-containers" target="_blank">Dataquest.io</a> to setup our machine learning environment.
 
-```ruby
+```python
 $ cat Dockerfile
 FROM dataquestio/ubuntu-base
 
@@ -49,10 +49,10 @@ ADD apt-packages.txt /tmp/apt-packages.txt
 RUN xargs -a /tmp/apt-packages.txt apt-get install -y --fix-missing
 ```
 
-We tell Docker that we would like to use a base image called `dataquestio/ubuntu-base` configured by a user of Dockerhub. This image is a good starting point, other machine learning images are much more involved and require a lot more time to fully understand. For machine learning you would need the CUDA versions for everything you do.
-Next we set some basic environments `ENV` and update the ubuntu version with system libraries of our needs. In the directory of your Dockerfile needs to be the <a href="https://github.com/dataquestio/ds-containers/blob/master/apt-packages.txt" target="_blank">apt-packages.txt</a> file.
+We tell Docker that we would like to use a base image called `dataquestio/ubuntu-base` configured by a user on Dockerhub. This image is a good starting point as other machine learning images are much more involved and require a lot more time to fully understand. If your dataset is large you would need to setup the CUDA versions leveraging your GPU (clusters).
+Next we set some basic environments `ENV` and update the ubuntu version with system libraries of our needs. In the directory of your Dockerfile needs to be a <a href="https://github.com/dataquestio/ds-containers/blob/master/apt-packages.txt" target="_blank">apt-packages.txt</a> file.
 
-```ruby
+```python
 RUN pip install virtualenv
 RUN /usr/local/bin/virtualenv /opt/ds --distribute --python=/usr/bin/python3
 
@@ -62,7 +62,7 @@ RUN /opt/ds/bin/pip install -r /tmp/requirements.txt
 
 Next we install everything required for running python and the needed libraries. The `requirements.txt` are necessary for all the statistical and machine learning libraries needed. They contain
 
-```ruby
+```python
 $ cat requirements.txt
 ipykernel
 jupyter
@@ -96,7 +96,7 @@ keras
 
 Next let us create the correct users and add permissions.
 
-```ruby
+```python
 RUN useradd --create-home --home-dir /home/ds --shell /bin/bash ds
 RUN chown -R ds /opt/ds
 RUN adduser ds sudo
@@ -106,9 +106,9 @@ RUN chmod +x /home/ds/run-jupyter.sh
 RUN chown ds /home/ds/run-jupyter.sh
 ```
 
-Within the container we need a user called `ds` and we would like to boot our jupyter notebook with executable permissions later on.
+Within the container we need a user called `ds` and we would like to boot a jupyter notebook with executable permissions.
 
-```ruby
+```python
 EXPOSE 6006
 EXPOSE 8888
 RUN usermod -a -G sudo ds
@@ -128,23 +128,25 @@ From within the container we need to expose Jupyter on port 8888, so it is acces
 
 After everything is setup, we can build our container like this
 
-```ruby
+```python
 docker build -t data-explore:latest -f Dockerfile .
 ```
 
-Nothing fancy really. We build the image and tag it `-t` with a name using the just created Dockerfile. After building the image we will need to start it.
+Nothing fancy really. We build the image and tag it `-t` using the created Dockerfile. After building the image we will need to start it.
 
-```ruby
+```python
 docker run --name data-explore -d -p 8888:8888 -v $HOME/to/notebooks:/home/ds/notebooks data-explore:latest
 ```
 
-Now here is happening quite a bit more. We run a container naming it `data-explore` port forwarding on `-p 8888:8888` so it is accessible on `localhost:8888` and defining a volume `-v` from our local host where the notebooks lie to the notebooks in the container. This means that all files on your local machine are mapped into the container and vice versa for peristent nootebook sessions. If everything worked out correctly, go to your browser on `localhost:8888` seeing something like this
+There is happening quite a bit more. We run a container naming it `data-explore` port forwarding on `-p 8888:8888` so it is accessible on `localhost:8888` and defining a volume `-v` from our local host where the notebooks lie to the notebooks in the container. This means that all files on your local machine are mapped into the container and vice versa for peristent nootebook sessions. If everything worked out correctly, go to your browser on `localhost:8888` seeing something like this
 
 {% include image.html url="/images/jupyter-browser.png" %}
 
+Jupyter is a nice data science / machine learning tool. It allows you to incrementally define your code and executing it partially from your browser. First importing all libraries (which takes up time), preprocessing all the data etc. It really helps in rerunning only the chunks that are currently needed.
+
 ### Machine Learning
 
-After setting everything up it is high time to create a small model. In the following I will take in a list of documents with text describing positions and one of three true normalized positions "engineer, product, c-level". We would like to predict from normalized text the true distribution of the data.
+After setting everything up it is high time to create a small model. In the following I will transform a list of documents containing text describing positions and one of three true normalized positions "engineer, product, c-level". I would like to predict from normalized text the true distribution of the data.
 
 <table class="table table-md table-striped table-bordered">
 <thead>
@@ -332,7 +334,7 @@ y_readable = [mapped_labels[val] for val in y_test]
 result_table = list(zip(x_test, pred_readable, y_readable))
 ```
 
-When everything is run (this might take a while), we can analyze our results and print out what values were correctly classified and misclassified.
+After running the classifier (this might take a while), we can analyze the results and print out what values were correctly classified and misclassified.
 
 ```python
 from collections import Counter
@@ -369,7 +371,7 @@ def analyze(result_table):
 analyze(result_table)
 ```
 
-The wrong results are much more interesting than correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and `4 as c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous and widely spread.
+The wrong results are much more interesting than the correct ones. The above classifier has an accuracy of around 96%. `5 were classified as engineers` despite being in the c-level category, `3 as product` despite being c-level and `4 as c-level` despite being engineer and product. The v-measure is only 80% because of this fact. On the wrongly assigned labels `c-level` seems to be very ambiguous and widely spread.
 
 ```python
 wrong:
@@ -401,7 +403,7 @@ c-level (127)
 
 ### Wrap up
 
-In this post I have shown how to use basic Docker to setup a machine learning environment. We then applied the environment to run a very basic algorithm called RandomForest. We did not optimize anything and just randomly hoped to improve results. Todays state of the art models in classifying something like the positions Long short-term memory (LSTM) networks, convolutional neural networks (CNN) or attention based networks (Transformer), do amazingly great on the tasks. There is always room for improvement!
+In this post I have shown how to use basic Docker to setup a machine learning environment. We then applied the environment to run a very basic algorithm called Random forest. We did not optimize anything and just randomly hoped to improve results. Todays state of the art models in classifying something like texttual positions, Long short-term memory (LSTM) networks, convolutional neural networks (CNN) or attention based networks (Transformer), do amazingly great on the tasks. There is always room for improvement!
 
 ### Sources
 
