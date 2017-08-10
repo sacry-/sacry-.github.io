@@ -17,7 +17,7 @@ Googles latest ecosystem evolves around the Google Cloud Platform (GCP). `GCP` o
 
 Google is probably the most involved researching company for general AI and the very promising subfield called machine learning with its very hot subfield deep learning. In deep learning we take universal approximators and stack layers upon layers of non linear weight approximations as deep and wide the hardware is possible to solve. In general there are thresholds from which adding weight matrices and layers does not do much for the accuracy. For the complex algorithms that run behind the scences Google has opened to a variety of development tools and SaaS products.
 
-<b>Tensorflow</b> is probably the most promising deep learning platform within the last years.
+<b>Tensorflow</b> is probably the most promising deep learning platform within the last years. We will look into the framework in a later post.
 
 <blockquote>Tensorflow is an open source software library for numerical computation using data flow graphs. Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them.<cite>- <a href="https://www.tensorflow.org/" target="_blank">Tensorflow.org</a></cite></blockquote>
 

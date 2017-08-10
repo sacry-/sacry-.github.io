@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Matthias Nitsche
-title: Containers, Docker and Machine Learning
+title: Docker and Machine Learning
 keywords: [containers, docker, machine learning, data engineering]
 index: 3
 img: containerization.jpg

@@ -27,14 +27,13 @@ In the following I will lay out basic terminology as well as a "table of content
 
     All the global players jumped on the AI train. Whether it is [Google](https://cloud.google.com/products/machine-learning/), [Microsoft](https://azure.microsoft.com/en-us/services/machine-learning/), [Facebook](https://research.fb.com/category/facebook-ai-research-fair/) with NVIDIA as their computational backend for high end GPU clusters. They set up research labs with the brightest people the field has to offer. Only big players can afford to run the algorithms with state of the art results and more importantly to ship products and applications to the market that scale to the billions of people interested. Here we will explore whats on the market and what developers of today can do with it. 
 
-4. <b>Training a neural network with Spark and Tensorflow</b>
+4. <b>Machine Learning with Spark</b>
 
-    [Apache Spark](https://spark.apache.org/){:target="_blank"} is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. [Tensorflow](https://www.tensorflow.org/){:target="_blank"} on the other hand is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. As Tensorflow needs a lot of computational power and Spark stores and accesses huge datasets efficiently how can we leverage both technologies to build a reasonable pipeline?
+    [Apache Spark](https://spark.apache.org/){:target="_blank"} is a great framework for concurrent data processing using Resilient Distributed Datasets (RDDs) or in short dataframes. It is entirely in memory and can scale up to large datasets. Spark is a perfect engine for trying out lots of different machine learning models. The libraries and its eco system made most of the standard algorithms like Random forest, SVM or linear regression available.
 
-5. <b>Deploying Tensorflow models</b>
+5. <b>Neural Networks with Tensorflow</b>
 
-    A topic often ignored in the literature is how to actually serve trained models. We will take a deeper look on how to deploy and serve Tensorflow models in the cloud. For this [gRPC](http://www.grpc.io/){:target="_blank"} - a high-performance, open-source RPC framework - and [Google Protobuf](https://developers.google.com/protocol-buffers/){:target="_blank"} - a fast data interchange format - will be used.
-
+    [Tensorflow](https://www.tensorflow.org/){:target="_blank"} is a computational graph engine that does automatic differention on mathematical models, such as deep learning algorithms. Todays data is large, unstructured and often entirely unnormalized. Tensorflow leverages clusters of GPU to approximate different cost functions automatically learning to represent data in a different dimension. The setup and debugging of such models can be tedious. Here we will have a basic introduction to Tensorflow models.
 
 The table is long and there is much todo. This basic introduction should have made you familiar with the concepts I would like to cover. Every article will have a longer sources section, possibly papers as well.
 
